@@ -4,7 +4,7 @@
 S. Luo, H. Li*, Y. Li, C. Shao, H. Shen and L. Zhang, "An Evolutionary Shadow Correction Network and a Benchmark UAV Dataset for Remote Sensing Images," IEEE Trans. on Geoscience and Remote Sensing, vol. 61, pp. 1-14, 2023, Art no. 5615414.
 
 ## Dataset and pre-trained model
-Our UAV-SC dataset（including the refined version） and pre-trained model for shadow removal is available for download at Google Drive(Link: https://drive.google.com/drive/folders/1BAiUScnRZW5utx-zBZXAXVN3-sSdqIDq?usp=drive_link).
+Our UAV-SC dataset（including the refined version） and pre-trained model for shadow removal is available for download at Google Drive(Link: https://drive.google.com/drive/folders/1BAiUScnRZW5utx-zBZXAXVN3-sSdqIDq?usp=drive_link), which is the same as the dataset we published  previously.
 
 ## Requisites
 - PyTorch 1.10
