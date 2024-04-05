@@ -23,6 +23,4 @@ python train.py --model pix2pix --name SRNet --dataset ./datasets/UAV-SC/train/t
 python test.py --model pix2pix --name SRNet --dataset ./datasets/UAV-SC/test/shaded
 ```
 
-```
-
 
