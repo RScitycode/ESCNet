@@ -21,30 +21,12 @@ class BaseOptions():
         """Define the common options that are used in both training and test."""
         # basic parameters
         parser.add_argument('--dataroot', required=False, default='./datasets/UAV-SC', help='path to images (should have subfolders trainA, trainB, valA, valB, etc)')
-        # cyclgGAN name
-        # parser.add_argument('--name', type=str, default='UAV-WG-jpg_cyclegan_batch10_loadsize256_unet256_vanilla', help='name of the experiment. It decides where to store samples and models')
-        # parser.add_argument('--name', type=str, default='UAV-WG-jpg_cyclegan_batch10_loadsize256_unet256_wgangp')
-        # parser.add_argument('--name', type=str, default='UAV-WG-jpg_cyclegan_batch10_loadsize256_unet256_lsgan')
-        # parser.add_argument('--name', type=str, default='UAV-WG-jpg_cyclegan_batch1_loadsize256_resnet9blocks_lsgan')
-        # parser.add_argument('--name', type=str, default='UAV-WG-jpg_cyclegan_batch2_loadsize256_resnet6blocks_lsgan')
-        # parser.add_argument('--name', type=str, default='UAV-WG-jpg_cyclegan_batch1_loadsize256_resnet6blocks_lsgan')
-        # parser.add_argument('--name', type=str, default='UAV-WG-jpg_cyclegan_batch4_loadsize256_resnet6blocks_lsgan_buffer50')
-
         # pix2pix name
         parser.add_argument('--name', type=str, default='SRNet')
-        # parser.add_argument('--name', type=str, default='UAV-WG-jpg_pix2pix_batch4_loadsize256_unet256_lsgan_BN')
-        # parser.add_argument('--name', type=str, default='UAV-WG-jpg_pix2pix_batch4_loadsize256_unet128_vanilla')
-        # parser.add_argument('--name', type=str, default='UAV-WG-jpg_pix2pix_batch4_loadsize256_resnet6blocks_vanilla')
-        # parser.add_argument('--name', type=str, default='UAV-WG-jpg_pix2pix_batch4_loadsize256_resnet6blocks_vanilla_BN')
-        # parser.add_argument('--name', type=str,
-        #                     default='UAV-WG-jpg_pix2pix_batch4_loadsize256_resnet6blocks_lsgan_BN')
-
-
         parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
         parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='models are saved here')
 
         # model parameters
-        # parser.add_argument('--model', type=str, default='cycle_gan', help='chooses which model to use. [cycle_gan | pix2pix | test | colorization]')
         parser.add_argument('--model', type=str, default='pix2pix',
                             help='chooses which model to use. [cycle_gan | pix2pix | test | colorization]')
 
@@ -58,8 +40,6 @@ class BaseOptions():
                             help='specify generator architecture [resnet_9blocks | resnet_6blocks | unet_256 | unet_128]')
 
         parser.add_argument('--n_layers_D', type=int, default=3, help='only used if netD==n_layers')
-
-        # parser.add_argument('--norm', type=str, default='instance', help='instance normalization or batch normalization [instance | batch | none]')
         parser.add_argument('--norm', type=str, default='batch',
                             help='instance normalization or batch normalization [instance | batch | none]')
 
@@ -78,7 +58,6 @@ class BaseOptions():
         parser.add_argument('--crop_size', type=int, default=512, help='then crop to this size')
 
         parser.add_argument('--max_dataset_size', type=int, default=float("inf"), help='Maximum number of samples allowed per dataset. If the dataset directory contains more than max_dataset_size, only a subset is loaded.')
-        # parser.add_argument('--preprocess', type=str, default='resize_and_crop', help='scaling and cropping of images at load time [resize_and_crop | crop | scale_width | scale_width_and_crop | none]')
         parser.add_argument('--preprocess', type=str, default='none',
                             help='scaling and cropping of images at load time [resize_and_crop | crop | scale_width | scale_width_and_crop | none]')
         parser.add_argument('--no_flip', action='store_true', help='if specified, do not flip the images for data augmentation')
@@ -86,10 +65,7 @@ class BaseOptions():
 
         # additional parameters
         parser.add_argument('--epoch', type=str, default='200', help='which epoch to load? set to latest to use latest cached model')
-        # parser.add_argument('--epoch', type=str, default=0,help='which epoch to load? set to latest to use latest cached model')
-
         parser.add_argument('--load_iter', type=int, default='0', help='which iteration to load? if load_iter > 0, the code will load models by iter_[load_iter]; otherwise, the code will load models by [epoch]')
-        # parser.add_argument('--verbose', action='store_true', help='if specified, print more debugging information')
         parser.add_argument('--verbose', type=bool, default=True, help='if specified, print more debugging information')
         parser.add_argument('--suffix', default='', type=str, help='customized suffix: opt.name = opt.name + suffix: e.g., {model}_{netG}_size{load_size}')
         self.initialized = True
